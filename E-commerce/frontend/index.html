@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>E-commerce</title>
+</head>
+<body>
+    <button id="fetch">Get Products</button>
+    <div id="products"></div>
+
+    <script>
+        document.getElementById('fetch').addEventListener('click', async () => {
+            const res = await fetch('http://localhost:3001/products');
+            const products = await res.json();
+            document.getElementById('products').innerHTML = JSON.stringify(products, null, 2);
+        });
+    </script>
+</body>
+</html>
